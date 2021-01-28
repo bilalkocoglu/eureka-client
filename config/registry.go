@@ -1,7 +1,6 @@
 package config
 
 import (
-	"github.com/bilalkocoglu/eureka-client/discovery"
 	"github.com/bilalkocoglu/eureka-client/model"
 	"github.com/bilalkocoglu/eureka-client/store"
 )
@@ -27,11 +26,5 @@ func SetRegistryConfigForCloud(cloudConfig model.CloudConfig, cfg *store.Registr
 		if useSSL != nil && useSSL != "" {
 			cfg.UseSSL = useSSL.(bool)
 		}
-
 	}
-}
-
-func ServiceRegister(cfg store.RegistryConfig) {
-	config := discovery.RegistrationVariables{ServiceRegistryURL: cfg.URL, UserName: cfg.Username, Password: cfg.Password}
-	go discovery.ManageDiscovery(config)
 }
