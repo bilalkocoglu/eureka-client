@@ -6,7 +6,7 @@ import (
 	"github.com/bilalkocoglu/eureka-client/store"
 )
 
-func setRegistryConfigForCloud(cloudConfig model.CloudConfig, cfg *store.RegistryConfig) {
+func SetRegistryConfigForCloud(cloudConfig model.CloudConfig, cfg *store.RegistryConfig) {
 	for _, s := range cloudConfig.PropertySources {
 		url := s.Source["registry.url"]
 		if cfg.URL == "" && url != nil && url != "" {
