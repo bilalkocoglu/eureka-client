@@ -1,7 +1,6 @@
 package store
 
 import (
-	"github.com/bilalkocoglu/eureka-client/discovery"
 	"strings"
 )
 
@@ -56,11 +55,6 @@ type RegisterInfo struct {
 }
 
 var RegisteredServices *ServiceInfos
-
-func ServiceRegister(cfg RegistryConfig) {
-	config := discovery.RegistrationVariables{ServiceRegistryURL: cfg.URL, UserName: cfg.Username, Password: cfg.Password, AppName: cfg.AppName, AppPort: cfg.AppPort, UseSSL: cfg.UseSSL}
-	go discovery.ManageDiscovery(config)
-}
 
 func (si ServiceInfos) GetServiceUrl(serviceName string) string {
 	for _, s := range si.Services {
